@@ -196,20 +196,30 @@ public class BrandRebatesBO {
     public void checkFilterButton() {
         brandRebatesPage.open();
         brandRebatesPage.clickClear();
-        brandRebatesPage.checkLockedRebates();
+        brandRebatesPage.checkExpiredRebates();
         Logger.logStep("check Filter Button");
         brandRebatesPage.clickFilterButton();
-        List<Boolean> isLockedList = brandRebatesPage.getLocksFromTable();
+        List<String> rebatesList = brandRebatesPage.getInnactiveAndExpiredRebatesFromTable();
         boolean mark = true;
-        for (Boolean isLocked : isLockedList) {
-            if (isLocked) {
-                mark = true;
-            } else {
-                mark = false;
-                break;
+        dateFormatter = new SimpleDateFormat("MM/dd/yy");
+        currentDate = new Date();
+        for (String isInactive : rebatesList) {
+            Date endDate = null;
+            try {
+                endDate = dateFormatter.parse(isInactive);
+            } catch (ParseException e) {
+                Logger.logTechnical(e.toString());
+            }
+            if (endDate != null) {
+                if (endDate.before(currentDate)) {
+                    mark = true;
+                } else {
+                    mark = false;
+                    break;
+                }
             }
         }
-        Assert.assertTrue(mark, "Problem with locking");
+        Assert.assertTrue(mark, "Problem with filter button");
     }
 
     public void checkRoundingBiasDropDown() {

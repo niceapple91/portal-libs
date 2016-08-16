@@ -202,7 +202,9 @@ public class AddMerchantPage extends BasePage {
     }
 
     public String getMerchantId() {
-        return Context.getCurrentWindowURL().replace("http://" + System.getenv("PREFIX") + ".merchandising.mallnetworks.com/view_merchant_programs.php?merchant_id=", "");
+        String protocol = testData.getData("merch_https").equals("yes") ? "https" : "http";
+        String baseDomain = testData.getData("base_domain");
+        return Context.getCurrentWindowURL().replace(protocol + "://"+ baseDomain + "/view_merchant_programs.php?merchant_id=", "");
     }
 
     public boolean isMerchantCreated(String merchantId, String merchantName) {

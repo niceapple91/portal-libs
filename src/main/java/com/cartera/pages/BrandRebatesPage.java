@@ -48,7 +48,7 @@ public class BrandRebatesPage extends BasePage {
     private AutocompleteWindow merchantRAutocompleteWindow;
     @FindBy(xpath = "//*[@id='rebate_index_form_list']/form/table/tbody/tr/td[1]")
     private List<TableItem> brandsFromTable;
-    @FindBy(xpath = "//*[@id='rebate_index_form_list']/form/table/tbody/tr/td[@class='ccRebateUpdateLockedOrBiasCell']/input")
+    @FindBy(xpath = "//*[@id='rebate_index_form_list']/form/table/tbody/tr/td/input[@class='ccRebateUpdateLockedOrBiasCell']")
     private List<CheckBox> lockBrandsFromTable;
     @FindBy(xpath = "//*[@id='rebate_index_form_list']/form/table/tbody/tr[@class='ccRebateUpdateInactiveRow']/td[9]")
     private List<TableItem> expiredBrandsFromTable;
@@ -225,7 +225,7 @@ public class BrandRebatesPage extends BasePage {
             }
         });
 
-        popupMerchant.waitForElementPresent();
+//        popupMerchant.waitForElementPresent();
         autoLinkMerchant.waitForElementPresent();
         Context.ajaxWait(new Action() {
             @Override

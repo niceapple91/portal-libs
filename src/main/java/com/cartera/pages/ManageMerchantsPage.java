@@ -142,7 +142,7 @@ public class ManageMerchantsPage extends BasePage {
             e.printStackTrace();
         }
         Logger.logStep("Click Deactivate link");
-        String merchantRowSelector = "table.index_list-table>tbody>tr#merchant_" + merchantId;
+        String merchantRowSelector = "table.index_list-table>tbody>tr# merchant_" + merchantId;
         WebElement root = driver.findElement(By.cssSelector(merchantRowSelector));
         WebElement deact = root.findElement(By.linkText("Deactivate Merchant"));
         deact.click();
