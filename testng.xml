@@ -1,0 +1,63 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AllTests">
+    <test name="HomePage">
+        <classes>
+            <class name="com.cartera.suites.HomePageITCase"/>
+        </classes>
+    </test>
+
+    <test name="Merchant">
+        <classes>
+            <class name="com.cartera.suites.MerchantITCase"/>
+        </classes>
+    </test>
+
+    <test name="Brand">
+        <classes>
+            <class name="com.cartera.suites.BrandITCase"/>
+        </classes>
+    </test>
+
+    <test name="BrandRebates">
+        <classes>
+            <class name="com.cartera.suites.BrandRebatesITCase"/>
+        </classes>
+    </test>
+
+    <!--<test name="RoundingBias">-->
+        <!--<classes>-->
+            <!--<class name="com.cartera.suites.RoundingBiasITCase"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="ManageBrands">
+        <classes>
+            <class name="com.cartera.suites.ManageBrandsITCase"/>
+        </classes>
+    </test>
+
+    <test name="EditBrand">
+        <classes>
+            <class name="com.cartera.suites.EditBrandITCase"/>
+        </classes>
+    </test>
+
+    <test name="Programs">
+        <classes>
+            <class name="com.cartera.suites.ProgramsITCase"/>
+        </classes>
+    </test>
+
+    <test name="DeleteDeactivate">
+        <classes>
+            <class name="com.cartera.suites.DeleteDeactivateITCase"/>
+        </classes>
+    </test>
+
+    <test name="Logout">
+        <classes>
+            <class name="com.cartera.suites.LogoutITCase"/>
+        </classes>
+    </test>
+</suite>
