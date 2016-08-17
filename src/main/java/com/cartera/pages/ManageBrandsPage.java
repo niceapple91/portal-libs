@@ -101,7 +101,7 @@ public class ManageBrandsPage extends BasePage {
     private Message noticeMessage;
     @FindBy(xpath = "//a[@href='http://301.201.preview.cartera.com/preview____.htm']")
     private Link previewAALink;
-    @FindBy(xpath = "(//td[@class='sf_admin_text sf_admin_list_td_Organization' and contains(.,'Mn')]/../td[@class='sf_admin_text sf_admin_list_td_display_name' and contains(.,'textCash')]/../td//li[@class='sf_admin_action_delete']/a)[1]")
+    @FindBy(xpath = "(//td[@class='sf_admin_text sf_admin_list_td_Organization' and contains(.,'Mn')]/../td[@class='sf_admin_text sf_admin_list_td_display_name' and contains(.,'textCash')]/../td/ul/li[@class='sf_admin_action_delete']/a)[1]")
     private Link deleteLink;
 
     public ManageBrandsPage(WebDriver driver) {

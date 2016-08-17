@@ -24,9 +24,9 @@ public class EditBrandPage extends BasePage {
     private TextBox clientShareTextBox;
     @FindBy(xpath = "//*[@id='brand_mn_share_percent']")
     private TextBox carteraShareTextBox;
-    @FindBy(xpath = "//*[@id='brand_name']")
+    @FindBy(xpath = "//*[@id='brand_name_view']")
     private TextBox nameTextBox;
-    @FindBy(xpath = "//*[@id='brand_display_name']")
+    @FindBy(xpath = "//*[@id='brand_display_name_view']")
     private TextBox displayNameTextBox;
     @FindBy(xpath = "//*[@id='brand_points_conversion_rate']")
     private TextBox pcrTextBox;
@@ -155,18 +155,27 @@ public class EditBrandPage extends BasePage {
     public void modifyPointsConversionRate(String value) {
         Logger.logStep("Modify Points Conversion Rate");
         pcrTextBox.waitForElementPresent();
+        pcrTextBox.clear();
         pcrTextBox.setText(value);
     }
 
     public void modifyCurrency() {
         Logger.logStep("Modify currency");
+        sPerEqShortTextBox.clear();
         sPerEqShortTextBox.setText("mile/$");
+        sDollarEqShortTextBox.clear();
         sDollarEqShortTextBox.setText("mile");
+        sPerEqLongTextBox.clear();
         sPerEqLongTextBox.setText("mile/$");
+        sDollarEqLongTextBox.clear();
         sDollarEqLongTextBox.setText("mile");
+        pPerEqShortTextBox.clear();
         pPerEqShortTextBox.setText("miles/$");
+        pDollarEqShortTextBox.clear();
         pDollarEqShortTextBox.setText("miles");
+        pPerEqLongTextBox.clear();
         pPerEqLongTextBox.setText("miles/$");
+        pDollarEqLongTextBox.clear();
         pDollarEqLongTextBox.setText("miles");
     }
 

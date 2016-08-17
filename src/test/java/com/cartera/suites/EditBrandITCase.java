@@ -43,13 +43,13 @@ public class EditBrandITCase extends BaseTestClass {
         editBrandBO.checkModifyMemberClientCarteraShares();
     }
 
-    @Test(timeOut = 300000, priority = 10)
+    @Test(timeOut = 300000, priority = 10, enabled = false)
     public void editBrand_5() {
         editBrandBO.loginAndNavigateToManageBrandsPage();
         editBrandBO.checkRemoveNameField();
     }
 
-    @Test(timeOut = 300000, priority = 10)
+    @Test(timeOut = 300000, priority = 10, enabled = false)
     public void editBrand_6() {
         editBrandBO.loginAndNavigateToManageBrandsPage();
         editBrandBO.checkRemoveDisplayName();
