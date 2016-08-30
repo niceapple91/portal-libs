@@ -296,13 +296,13 @@ public class BrandRebatesBO {
         brandRebatesPage.selectBrand(randomBrand);
         brandRebatesPage.fillMerchantInput("autotest");
         brandRebatesPage.clickFilterButton();
-        try {
-            if (brandRebatesPage.isLockCheckBoxHighlighted()) {
-                throw new SkipException("CheckBox is already highlighted");
-            }
-        } catch (org.openqa.selenium.NoSuchElementException e){
-            Logger.logStep("Element is not highlighted");
-        }
+//        try {
+//            if (brandRebatesPage.isLockCheckBoxHighlighted()) {
+//                throw new SkipException("CheckBox is already highlighted");
+//            }
+//        } catch (org.openqa.selenium.NoSuchElementException e){
+//            Logger.logStep("Element is not highlighted");
+//        }
         Logger.logStep("click Lock checkBox");
         if(!brandRebatesPage.clickLockCheckBox()){
             throw new SkipException("Didn't click on checkbox");

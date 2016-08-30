@@ -76,9 +76,11 @@ public class MerchantBO {
     }
 
     public void checkNewMerchantCreation() {
+        loginAndNavigateToAddMerchantPage();
         Context.waitForPageLoaded(driver);
-        addMerchantPage.fillAllInputs(MERCHANT_NAME);
+        addMerchantPage.createNewGlobalMerchant(MERCHANT_NAME);
         merchantId = addMerchantPage.getMerchantId();
+        Logger.logStep("merchantId " + merchantId);
         Logger.logStep("Check is merchant created correctly.");
         boolean isMerchantCreated = addMerchantPage.isMerchantCreated(merchantId, MERCHANT_NAME);
         Assert.assertTrue(isMerchantCreated, "Problems with merchant creation.");

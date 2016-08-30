@@ -191,6 +191,7 @@ public class ManageBrandsBO {
         expectedRebatesDisplayTableHeaders.add("Domain");
         expectedRebatesDisplayTableHeaders.add("Solutions");
         expectedRebatesDisplayTableHeaders.add("Content actively managed");
+        expectedRebatesDisplayTableHeaders.add("Active Merchant Count");
         expectedRebatesDisplayTableHeaders.add("Created");
         expectedRebatesDisplayTableHeaders.add("Updated");
         expectedRebatesDisplayTableHeaders.add("Actions");

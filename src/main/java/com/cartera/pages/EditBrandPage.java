@@ -24,12 +24,20 @@ public class EditBrandPage extends BasePage {
     private TextBox clientShareTextBox;
     @FindBy(xpath = "//*[@id='brand_mn_share_percent']")
     private TextBox carteraShareTextBox;
+    @FindBy(xpath = "//*[@id='brand_name']")
+    private TextBox nameTextBoxQA;
+    @FindBy(xpath = "//*[@id='brand_display_name']")
+    private TextBox displayNameTextBoxQA;
+    @FindBy(xpath = "//*[@id='brand_points_conversion_rate']")
+    private TextBox pcrTextBox;
+    @FindBy(xpath = "//*[@id='brand_name_view']")
+    private TextBox nameTextBoxDev;
+    @FindBy(xpath = "//*[@id='brand_display_name_view']")
+    private TextBox displayNameTextBoxDev;
     @FindBy(xpath = "//*[@id='brand_name_view']")
     private TextBox nameTextBox;
     @FindBy(xpath = "//*[@id='brand_display_name_view']")
     private TextBox displayNameTextBox;
-    @FindBy(xpath = "//*[@id='brand_points_conversion_rate']")
-    private TextBox pcrTextBox;
 
 
     @FindBy(xpath = "//*[@class='ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only']")
@@ -109,6 +117,7 @@ public class EditBrandPage extends BasePage {
 
     public void removeNameField() {
         Logger.logStep("Remove Name Field");
+        getNameTextBox();
         nameTextBox.waitForElementPresent();
         nameTextBox.clear();
     }
@@ -120,6 +129,7 @@ public class EditBrandPage extends BasePage {
 
     public void removeDisplayNameField() {
         Logger.logStep("Remove Display Name Field");
+        getDisplayNameTextBox();
         displayNameTextBox.waitForElementPresent();
         displayNameTextBox.clear();
     }
@@ -143,6 +153,7 @@ public class EditBrandPage extends BasePage {
     }
 
     public String getBrandName() {
+        getNameTextBox();
         nameTextBox.waitForElementPresent();
         return nameTextBox.getWebElement().getAttribute("value");
     }
@@ -197,4 +208,12 @@ public class EditBrandPage extends BasePage {
         carteraShareTextBox.clear();
         carteraShareTextBox.setText("0.00");
     }
+
+    private void getNameTextBox(){
+        nameTextBox = (testData.getData("env").equals("qa")) ? nameTextBoxQA : nameTextBoxDev;
+    }
+    private void getDisplayNameTextBox(){
+        displayNameTextBox = (testData.getData("env").equals("qa")) ? displayNameTextBoxQA : displayNameTextBoxDev;
+    }
+
 }

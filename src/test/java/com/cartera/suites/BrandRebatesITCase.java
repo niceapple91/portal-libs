@@ -3,11 +3,9 @@ package com.cartera.suites;
 import com.cartera.businessobject.BrandRebatesBO;
 import com.cartera.launcher.BaseTestClass;
 import com.cartera.launcher.Context;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+@Listeners(com.cartera.transformer.TimeoutTransformer.class)
 public class BrandRebatesITCase extends BaseTestClass {
 
     BrandRebatesBO brandRebatesBO;
@@ -60,7 +58,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Lock Rebates
      */
-    @Test(timeOut = 300000, priority = 4)
+    @Test(timeOut = 600000, priority = 4)
     public void brandRebateUI_6() {
         brandRebatesBO.login();
         brandRebatesBO.checkLockedRebates();
@@ -70,7 +68,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Expired Rebates
      */
-    @Test(timeOut = 300000, priority = 4)
+    @Test(timeOut = 800000, priority = 4)
     public void brandRebateUI_7() {
         brandRebatesBO.login();
         brandRebatesBO.checkExpiredRebates();
@@ -100,7 +98,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Filter Button
      */
-    @Test(timeOut = 300000, priority = 5)
+    @Test(timeOut = 600000, priority = 5)
     public void brandRebateUI_10() {
         brandRebatesBO.login();
         brandRebatesBO.checkFilterButton();
@@ -110,7 +108,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Rounding Bias DropDown
      */
-    @Test(timeOut = 300000, priority = 5)
+    @Test(timeOut = 600000, priority = 5)
     public void brandRebateUI_11() {
         brandRebatesBO.login();
         brandRebatesBO.checkRoundingBiasDropDown();
@@ -130,7 +128,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Update Button
      */
-    @Test(timeOut = 300000, priority = 5)
+    @Test(timeOut = 600000, priority = 5)
     public void brandRebateUI_13() {
         brandRebatesBO.login();
         brandRebatesBO.checkUpdateButton();
@@ -140,7 +138,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Lock checkbox and Rebates Updated Message
      */
-    @Test(timeOut = 300000, priority = 5)
+    @Test(timeOut = 600000, priority = 5)
     public void brandRebateUI_14_15() {
         brandRebatesBO.login();
         brandRebatesBO.checkLockCheckboxAndRebatesUpdatedMessage();
@@ -150,7 +148,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check All Links Url
      */
-    @Test(timeOut = 300000, priority = 5)
+    @Test(timeOut = 600000, priority = 5)
     public void brandRebateUI_16() {
         brandRebatesBO.login();
         brandRebatesBO.checkDownloadAllLink();
@@ -160,7 +158,7 @@ public class BrandRebatesITCase extends BaseTestClass {
     /**
      * check Rebates Display Table
      */
-    @Test(timeOut = 600000, priority = 5)
+    @Test(timeOut = 800000, priority = 5)
     public void brandRebateUI_17() {
         brandRebatesBO.login();
         brandRebatesBO.checkRebatesDisplayTable();

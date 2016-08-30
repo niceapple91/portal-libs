@@ -211,12 +211,9 @@ public class BrandRebatesPage extends BasePage {
 
     public void fillMerchantInput(String inputValue) {
         merchantTextBox.waitForElementPresent();
-
-        //can't put ampersand with standard setText method.
-        //merchantTextBox.setText(inputValue);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript(String.format("$('#autocomplete_merchant_fk').val('%s');", inputValue));
-
+        merchantTextBox.setText(inputValue);
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript(String.format("$('#autocomplete_merchant_fk').val('%s');", inputValue));
         Context.ajaxWait(new Action() {
             @Override
             public boolean run() {

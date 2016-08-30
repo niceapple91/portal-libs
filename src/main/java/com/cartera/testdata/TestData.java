@@ -14,7 +14,7 @@ public class TestData {
     public String getData(String propName) {
 
         try {
-            String name = "/merchandising_portal.properties";
+            String name = System.getenv("ENV_DATA_FILE");
             inputStream = this.getClass().getResourceAsStream(name);
             properties.load(inputStream);
             return properties.getProperty(propName);
@@ -44,7 +44,7 @@ public class TestData {
 
     public String isTestDisabled(String propName) {
         try {
-            String name = "/suite-merchandising_portal-crayola.properties";
+            String name = System.getenv("ENV_SUITE_FILE");
             inputStream = this.getClass().getResourceAsStream(name);
             properties.load(inputStream);
             return properties.getProperty(propName);
@@ -60,6 +60,27 @@ public class TestData {
             }
         }
         return null;
+    }
+
+    public boolean isTestCaseDisabled(String propName, String testCaseName) {
+        try {
+            String name = System.getenv("ENV_SUITE_FILE");
+            inputStream = this.getClass().getResourceAsStream(name);
+            properties.load(inputStream);
+            String prop = properties.getProperty(propName);
+            return prop.contains(testCaseName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 
 }

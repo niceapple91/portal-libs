@@ -147,7 +147,7 @@ public class EditBrandBO {
         brandRebatesPage.selectBias("none");
         brandRebatesPage.clickResetRebates();
         Logger.logStep("Verify rebates after changing data");
-        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), "5%", "Wrong Rebate");
+        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), getExpectedResult("rebate_update_share"), "Wrong Rebate");
     }
 
     public void checkSetNewValuesWithWrongData() {
@@ -178,7 +178,7 @@ public class EditBrandBO {
         brandRebatesPage.selectBias("none");
         brandRebatesPage.clickResetRebates();
         Logger.logStep("Verify rebates after changing data");
-        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), "3", "Wrong Rebate");
+        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), getExpectedResult("rebate_update_points_conversion"), "Wrong Rebate");
     }
 
     public void checkSetNewCurrency() {
@@ -199,7 +199,7 @@ public class EditBrandBO {
         brandRebatesPage.selectBias("none");
         brandRebatesPage.clickResetRebates();
         Logger.logStep("Verify rebates after changing data");
-        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), "3 miles/$", "Wrong Rebate");
+        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), getExpectedResult("rebate_update_points_currency"), "Wrong Rebate");
     }
 
     public void checkModifyToInitialState() {
@@ -220,7 +220,7 @@ public class EditBrandBO {
         brandRebatesPage.selectBias("none");
         brandRebatesPage.clickResetRebates();
         Logger.logStep("Verify rebates after changing data");
-        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), "10%", "Wrong Rebate");
+        Assert.assertEquals(brandRebatesPage.getRebatesFromTable().get(0), getExpectedResult("rebate_update_state"), "Wrong Rebate");
     }
 
     private void createBrand(){
@@ -233,5 +233,9 @@ public class EditBrandBO {
         } catch (Exception e) {
             Assert.assertTrue(false, "Problems with brand creation.");
         }
+    }
+
+    private String getExpectedResult(String key){
+        return Context.getTestData().getData(key);
     }
 }

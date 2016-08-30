@@ -34,7 +34,7 @@ public class DeleteDeactivateITCase extends BaseTestClass {
     /**
      * check delete brand
      */
-    @Test(timeOut = 300000, priority = 13, enabled = false)
+    @Test(timeOut = 300000, priority = 13)
     public void deleteBrand_1() {
         deleteDeactivateBO.checkDeletingBrand();
     }

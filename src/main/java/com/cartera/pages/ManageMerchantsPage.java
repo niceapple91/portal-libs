@@ -35,6 +35,9 @@ public class ManageMerchantsPage extends BasePage {
     private TableItem someTableItem;
     @FindBy(xpath = "(//tr[@class='inactive' and ./td[contains(.,'autotest')]]/td/a[@title='Programs'])[1]")
     private Link inactiveProgramsLink;
+    @FindBy(xpath = "(//td[contains(text(),'autotest')])[1]")
+    private Link autotestProgramsLink;
+
 
     public ManageMerchantsPage(WebDriver driver) {
         super(driver);
@@ -48,6 +51,7 @@ public class ManageMerchantsPage extends BasePage {
     }
 
     public boolean isMerchantPresent(String merchantId, String merchantName) {
+        filterMerchantsByLetter("A");
         String merchantRowSelector = "//table[@class='index_list-table']//tr[@id='merchant_" + merchantId + "']";
         String merchantStatusSelector = "//tr[@id='merchant_" + merchantId + "']/td[3]";
         char merchantNameFirstLetter = merchantName.toCharArray()[0];
@@ -142,7 +146,7 @@ public class ManageMerchantsPage extends BasePage {
             e.printStackTrace();
         }
         Logger.logStep("Click Deactivate link");
-        String merchantRowSelector = "table.index_list-table>tbody>tr# merchant_" + merchantId;
+        String merchantRowSelector = "table.index_list-table>tbody>tr#merchant_" + merchantId;
         WebElement root = driver.findElement(By.cssSelector(merchantRowSelector));
         WebElement deact = root.findElement(By.linkText("Deactivate Merchant"));
         deact.click();

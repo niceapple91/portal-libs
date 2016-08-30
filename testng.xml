@@ -1,6 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="AllTests">
+    <listeners>
+        <listener class-name="com.cartera.transformer.TimeoutTransformer" />
+    </listeners>
+
     <test name="HomePage">
         <classes>
             <class name="com.cartera.suites.HomePageITCase"/>

@@ -166,7 +166,11 @@ public class NewBrandPage extends BasePage {
     }
 
     public String getUrl() {
-        return "https://" + getPrefix() + "merchandising.dev.cartera.com/brand_add_quick_form.php";
+        String protocol = testData.getData("merch_https").equals("yes") ? "https" : "http";
+        String baseDomain = testData.getData("base_domain");
+
+        String baseUrl = String.format("%s://%s", protocol, getPrefixForUrl() + baseDomain);
+        return baseUrl + "/brand_add_quick_form.php";
     }
 
     public List<String> getErrorMessages() {
