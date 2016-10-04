@@ -54,6 +54,7 @@ public class ProgramsITCase extends BaseTestClass {
         programsBO.checkModifyCommission();
     }
 
+
     @AfterMethod
     public void afterMethod() {
         Context.getTestSession().clearCookies();

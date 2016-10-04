@@ -54,7 +54,7 @@ public class BrandBO {
 
     public void checkNewBrandPageUrl(){
         String currentUrl = getCurrentURL();
-        Logger.logStep("Check if navigation to New Brand page is correct");
+        Logger.logStep("Check if navigation to New Brand page is correct ");
         Assert.assertEquals(currentUrl, newBrandPage.getUrl(), "Can't navigate to 'New Brand Page' from 'Home Page'!");
     }
 

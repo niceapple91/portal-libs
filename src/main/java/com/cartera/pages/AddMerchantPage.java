@@ -101,9 +101,10 @@ public class AddMerchantPage extends BasePage {
         Logger.logStep("Set merchant name.");
         nameTextBox.setText(merchantName);
         displayNameTextBox.setText(merchantName);
-        Context.ajaxWait(new Action() {
+        Context.ajaxWait(new Action() {;
             @Override
             public boolean run() {
+                Logger.logStep("Click save button. ");
                 saveButton.click();
                 return true;
             }

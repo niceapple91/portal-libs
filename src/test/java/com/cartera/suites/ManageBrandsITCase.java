@@ -183,7 +183,7 @@ public class ManageBrandsITCase extends BaseTestClass {
     /**
      * checkDeleteLink
      */
-    @Test(timeOut = 300000, priority = 9, enabled = false)
+    @Test(timeOut = 300000, priority = 9)
     public void manageBrands_19() {
         manageBrandsBO.loginAndNavigateToManageBrandsPage();
         manageBrandsBO.checkDeleteLink();
