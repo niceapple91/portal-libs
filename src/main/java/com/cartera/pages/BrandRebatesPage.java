@@ -214,15 +214,15 @@ public class BrandRebatesPage extends BasePage {
         merchantTextBox.setText(inputValue);
 //        JavascriptExecutor js = (JavascriptExecutor) driver;
 //        js.executeScript(String.format("$('#autocomplete_merchant_fk').val('%s');", inputValue));
-        Context.ajaxWait(new Action() {
-            @Override
-            public boolean run() {
-                merchantTextBox.doubleClick();
-                return true;
-            }
-        });
+//        Context.ajaxWait(new Action() {
+//            @Override
+//            public boolean run() {
+//                merchantTextBox.doubleClick();
+//                return true;
+//            }
+//        });
 
-//        popupMerchant.waitForElementPresent();
+        merchantTextBox.doubleClick();
         autoLinkMerchant.waitForElementPresent();
         Context.ajaxWait(new Action() {
             @Override

@@ -8,6 +8,7 @@ import com.cartera.testdata.TestData;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -61,10 +62,7 @@ public class RoundingBiasBO {
         brandRebatesPage.open();
         merchantsList = new LinkedList<String>();
         merchantsList.add(merchantName);
-        merchantsList.add("AT\u0026T U-verse");
-        merchantsList.add("Apple Store");
-        merchantsList.add("CheapCaribbean");
-        merchantsList.add("FedEx, a USAA Alliance Offer");
+        Collections.addAll(merchantsList, testData.getData("rounding_bias_text").split(";"));
     }
 
     public void checkRoundingBiasForMN(String bias) {
